@@ -1,0 +1,42 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+*.pyd
+
+# Jupyter Notebook checkpoint files
+.ipynb_checkpoints/
+
+# Environment files
+env/
+venv/
+ENV/
+.venv/
+env.bak/
+venv.bak/
+
+# VS Code project files
+.vscode/
+
+# macOS & Linux
+.DS_Store
+Thumbs.db
+
+# Python virtualenv
+*.env
+*.venv
+*.egg-info/
+*.egg
+.Python
+
+# Logs and data files
+*.log
+*.sqlite3
+*.csv~
+*.bak
+
+# Streamlit config
+.streamlit/config.toml
+
+# Ignore secrets or keys (if any)
+secrets/
