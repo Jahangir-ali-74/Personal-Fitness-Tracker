@@ -11,9 +11,31 @@ import warnings
 warnings.filterwarnings('ignore')
 
 # -----------------------------
-# Page Configuration
+# Page Configuration (LinkedIn-friendly metadata)
 # -----------------------------
-st.set_page_config(page_title="Personal Fitness Tracker", layout="centered")
+st.set_page_config(
+    page_title="Personal Fitness Tracker | AI-Powered Calorie Predictor",
+    page_icon="🏋️‍♂️",
+    layout="centered",
+    initial_sidebar_state="expanded"
+)
+
+# SEO + Metadata (helps LinkedIn & search engines read your app info)
+st.markdown(
+    """
+    <meta name="title" content="Personal Fitness Tracker | AI-Powered Calorie Predictor">
+    <meta name="description" content="An intelligent fitness tracker that predicts calories burned based on age, BMI, gender, and heart rate using Machine Learning. Created by Sayed Jahangir Ali.">
+    <meta property="og:title" content="Personal Fitness Tracker | AI-Powered Calorie Predictor">
+    <meta property="og:description" content="Predict your calories burned with AI. Built using Streamlit, Python, and Random Forest Regression.">
+    <meta property="og:image" content="https://meridianfitness.in/wp-content/uploads/2019/07/collage-strength.jpg">
+    <meta property="og:url" content="https://personal-fitness-tracker-jahangir.streamlit.app/">
+    """,
+    unsafe_allow_html=True
+)
+
+# -----------------------------
+# Custom Background Styling
+# -----------------------------
 st.markdown(
     """
     <style>
@@ -26,16 +48,17 @@ st.markdown(
         color: white;
     }
 
-    /* Brighten sidebar and headers */
+    /* Sidebar styling */
     .css-18e3th9 {
         background-color: rgba(0, 0, 0, 0.6);
     }
 
+    /* Headings and text */
     .css-1v0mbdj, .css-10trblm, .css-1d391kg {
         color: white !important;
     }
 
-    /* Optional: make inputs more visible */
+    /* Sliders */
     .stSlider > div {
         background-color: rgba(255, 255, 255, 0.1);
     }
@@ -43,6 +66,10 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
+
+# -----------------------------
+# App Title and Description
+# -----------------------------
 st.title("🏃 Personal Fitness Tracker")
 st.markdown(
     "Predict the **calories burned** based on your physical parameters such as age, BMI, gender, heart rate, etc."
@@ -131,6 +158,10 @@ st.write(f"You're older than **{(full_df['Age'] < user_data['Age'].values[0]).me
 st.write(f"Your exercise duration is longer than **{(full_df['Duration'] < user_data['Duration'].values[0]).mean() * 100:.2f}%** of others.")
 st.write(f"Your heart rate is higher than **{(full_df['Heart_Rate'] < user_data['Heart_Rate'].values[0]).mean() * 100:.2f}%** of others.")
 st.write(f"Your body temperature is higher than **{(full_df['Body_Temp'] < user_data['Body_Temp'].values[0]).mean() * 100:.2f}%** of others.")
+
+# -----------------------------
+# Footer
+# -----------------------------
 st.markdown(
     """
     <div style='
@@ -147,4 +178,3 @@ st.markdown(
     """,
     unsafe_allow_html=True
 )
-
